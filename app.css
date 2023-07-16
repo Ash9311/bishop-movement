@@ -3,3 +3,15 @@
     width: 30px;
     border: 2px solid black;
 }
+
+.row{
+    display: flex;;
+}
+
+.white{
+    background-color: white;
+}
+
+.black{
+    background-color: black;
+}
