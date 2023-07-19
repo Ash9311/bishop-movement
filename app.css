@@ -1,7 +1,8 @@
 .square{
     height:30px;
     width: 30px;
-    border: 2px solid black;
+    border: 1px solid black;
+    background-color: white;
 }
 
 .row{
@@ -15,3 +16,11 @@
 .black{
     background-color: black;
 }
+
+.light-blue {
+    background-color: #add8e6;
+  }
+  
+  .dark-blue {
+    background-color: #0000cd;
+  }
