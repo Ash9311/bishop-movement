@@ -43,12 +43,12 @@ function renderCB() {
                 }
 
 
-
+                square.addEventListener('mouseout', () => {
+                    squares.forEach(square => square.classList.remove('light-blue', 'dark-blue'));
+                });
             });
 
-            square.addEventListener('mouseout', () => {
-                squares.forEach(square => square.classList.remove('light-blue', 'dark-blue'));
-            });
+
             row.appendChild(square);
         }
 
