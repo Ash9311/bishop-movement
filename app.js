@@ -1,6 +1,6 @@
 const chessBoard = document.querySelector('.chess-board');
 
-const squares = document.querySelectorAll('.square');
+const squares = [];
 
 renderCB();
 
@@ -23,18 +23,15 @@ function renderCB() {
 
 
                 //get row and col index of the hovered square
-                const rowIndex = Array.from(square.parentNode.children).indexOf(square);
-                const colIndex = Array.from(square.parentNode.parentNode.children).indexOf(square.parentNode);
+                const rowIndex = i;
+                const colIndex = j;
 
                 //highlight diagonally attacked squares
                 for (let i = 0; i < 8; i++) {
-                    const row = document.querySelectorAll('.row')[i];
-                    const squaresInRow = row.children;
-
                     for (let j = 0; j < 8; j++) {
-                        const currentSquare = squaresInRow[j];
-                        const currentRowIndex = Array.from(currentSquare.parentNode.children).indexOf(currentSquare);
-                        const currentColIndex = Array.from(currentSquare.parentNode.parentNode.children).indexOf(currentSquare.parentNode);
+                        const currentSquare = squares[i*8+j];
+                        const currentRowIndex = i;
+                        const currentColIndex = j;
                         if (Math.abs(currentRowIndex - rowIndex) === Math.abs(currentColIndex - colIndex) && square != currentSquare) {
                             currentSquare.classList.add('dark-blue');
                         }
@@ -43,13 +40,14 @@ function renderCB() {
                 }
 
 
-                square.addEventListener('mouseout', () => {
-                    squares.forEach(square => square.classList.remove('light-blue', 'dark-blue'));
-                });
+            
             });
 
-
+            square.addEventListener('mouseout', () => {
+                squares.forEach(square => square.classList.remove('light-blue', 'dark-blue'));
+            });
             row.appendChild(square);
+            squares.push(square);
         }
 
 
